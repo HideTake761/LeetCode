@@ -1,16 +1,30 @@
-# サンプル GFM ドキュメント
+The proble is [here](https://leetcode.com/problems/contains-duplicate/description/)
 
-このリポジトリは [HideTake761/LeetCode](^1^) を参考にしています。  
-詳しくは [GitHub Docs](https://docs.github.com/) をチェックしてね！
-
-## Pythonの例
-
-以下は、リストの中の最大値を求めるシンプルなPythonコードです：
+Python
 
 ```python
-def find_max(numbers):
-    if not numbers:
-        return None
-    return max(numbers)
+from typing import List
 
-print(find_max([3, 7, 2, 9, 5]))
+def containsDuplicate(nums: List[int]) -> bool:
+
+    temp = []
+
+    for num in nums:
+        if num not in temp:
+            temp.append(num)
+        else: return True
+    
+    return False
+
+def containsDuplicate2(nums: List[int]) -> bool:
+
+    return nums != list(set(nums))
+
+if __name__ == '__main__':
+
+    nums = [1,2,3,4]
+    #nums = [1,2,3,1]
+    #nums = [1,1,1,3,3,4,3,2,4,2]
+
+    print(containsDuplicate(nums))
+    print(containsDuplicate2(nums))
